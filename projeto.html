@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Curso Avançado - Recomeçar com Código: Introdução ao JavaScript para Adultos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        header, section, footer {
+            background: #fff;
+            padding: 25px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            max-width: 900px;
+        }
+        header h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #3498db;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #2c3e50;
+            margin-top: 25px;
+        }
+        pre {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #3498db;
+        }
+        code {
+            color: #e74c3c;
+            background-color: #f9f2f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 30px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            padding: 20px;
+        }
+        .note {
+            background-color: #e7f5fe;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .warning {
+            background-color: #fff3e0;
+            border-left: 4px solid #ffa000;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Curso Avançado - Introdução ao JavaScript para Adultos</h1>
+        <p>Este curso oferece uma visão completa do JavaScript para adultos em transição de carreira, com explicações detalhadas e exemplos práticos.</p>
+    </header>
+
+    <section id="modulo1">
+        <h2>Módulo 1: Fundamentos do JavaScript</h2>
+        
+        <h3>1. História e uso do JavaScript</h3>
+        <p>JavaScript foi criado em 1995 por Brendan Eich enquanto trabalhava na Netscape. Originalmente chamado de Mocha, depois LiveScript, finalmente foi renomeado para JavaScript como estratégia de marketing. Hoje é a linguagem de programação mais popular do mundo, executando em navegadores, servidores (Node.js), dispositivos IoT e mais.</p>
+        
+        <div class="note">
+            <p><strong>Curiosidade:</strong> JavaScript não tem relação com Java, apesar do nome. A semelhança no nome foi uma decisão de marketing.</p>
+        </div>
+        
+        <h3>2. Sintaxe básica</h3>
+        <p>A sintaxe do JavaScript inclui:</p>
+        <ul>
+            <li>Instruções terminam com ponto e vírgula (opcional, mas recomendado)</li>
+            <li>Blocos de código delimitados por chaves {}</li>
+            <li>Comentários de linha única com // e múltiplas linhas com /* */</li>
+            <li>Case sensitive (diferencia maiúsculas de minúsculas)</li>
+        </ul>
+        
+        <pre><code>// Comentário de uma linha
+/* Comentário de 
+múltiplas linhas */
+
+{
+    // Bloco de código
+    console.log("Olá, mundo!");
+}
+</code></pre>
+        
+        <h3>3. Variáveis (let, const, var)</h3>
+        <p>JavaScript oferece três maneiras de declarar variáveis:</p>
+        <ul>
+            <li><code>let</code>: variável com escopo de bloco, mutável</li>
+            <li><code>const</code>: variável com escopo de bloco, imutável (valor não pode ser reatribuído)</li>
+            <li><code>var</code>: variável com escopo de função, obsoleto (evitar usar)</li>
+        </ul>
+        
+        <pre><code>let nome = "João";  // Pode ser reatribuída
+nome = "Maria";
+
+const PI = 3.14159; // Não pode ser reatribuída
+// PI = 3.14; // Isso causaria um erro
+
+var idade = 30; // Evitar usar var
+</code></pre>
+        
+        <div class="warning">
+            <p><strong>Boa prática:</strong> Prefira <code>const</code> por padrão e use <code>let</code> apenas quando precisar reatribuir valores. Evite <code>var</code>.</p>
+        </div>
+        
+        <h3>4. Tipos de dados primitivos</h3>
+        <p>JavaScript tem 7 tipos primitivos:</p>
+        <ul>
+            <li><code>string</code> - texto (ex: "Olá")</li>
+            <li><code>number</code> - números (ex: 42, 3.14)</li>
+            <li><code>boolean</code> - verdadeiro/falso (true/false)</li>
+            <li><code>null</code> - valor nulo intencional</li>
+            <li><code>undefined</code> - valor não definido</li>
+            <li><code>symbol</code> - valor único e imutável (ES6)</li>
+            <li><code>bigint</code> - números inteiros muito grandes (ES2020)</li>
+        </ul>
+        
+        <pre><code>let texto = "JavaScript"; // string
+let numero = 42;         // number
+let ativo = true;        // boolean
+let vazio = null;        // null
+let naoDefinido;         // undefined
+let id = Symbol("id");   // symbol
+let grande = 1234567890123456789012345678901234567890n; // bigint
+</code></pre>
+    </section>
+
+    <section id="modulo2">
+        <h2>Módulo 2: Operadores e Expressões</h2>
+        
+        <h3>1. Operadores aritméticos</h3>
+        <p>JavaScript inclui os operadores aritméticos básicos:</p>
+        <ul>
+            <li><code>+</code> Adição</li>
+            <li><code>-</code> Subtração</li>
+            <li><code>*</code> Multiplicação</li>
+            <li><code>/</code> Divisão</li>
+            <li><code>%</code> Módulo (resto da divisão)</li>
+            <li><code>**</code> Exponenciação (ES2016)</li>
+            <li><code>++</code> Incremento</li>
+            <li><code>--</code> Decremento</li>
+        </ul>
+        
+        <pre><code>let soma = 10 + 5;       // 15
+let subtracao = 10 - 5;  // 5
+let multiplicacao = 10 * 5; // 50
+let divisao = 10 / 5;    // 2
+let resto = 10 % 3;      // 1
+let potencia = 2 ** 3;   // 8
+
+let contador = 0;
+contador++; // Incrementa para 1
+contador--; // Decrementa para 0
+</code></pre>
+        
+        <h3>2. Operadores lógicos e comparativos</h3>
+        <p>Operadores comparativos:</p>
+        <ul>
+            <li><code>==</code> Igual (valor)</li>
+            <li><code>===</code> Igual (valor e tipo)</li>
+            <li><code>!=</code> Diferente (valor)</li>
+            <li><code>!==</code> Diferente (valor e tipo)</li>
+            <li><code>></code> Maior que</li>
+            <li><code><</code> Menor que</li>
+            <li><code>>=</code> Maior ou igual</li>
+            <li><code><=</code> Menor ou igual</li>
+        </ul>
+        
+        <p>Operadores lógicos:</p>
+        <ul>
+            <li><code>&&</code> AND (e)</li>
+            <li><code>||</code> OR (ou)</li>
+            <li><code>!</code> NOT (não)</li>
+        </ul>
+        
+        <pre><code>// Comparação
+console.log(5 == '5');   // true (conversão de tipo)
+console.log(5 === '5');  // false (tipos diferentes)
+console.log(5 !== '5');  // true
+
+// Lógicos
+let idade = 25;
+let temCarteira = true;
+console.log(idade >= 18 && temCarteira); // true
+console.log(idade < 18 || !temCarteira); // false
+</code></pre>
+        
+        <div class="note">
+            <p><strong>Boa prática:</strong> Sempre use <code>===</code> e <code>!==</code> em vez de <code>==</code> e <code>!=</code> para evitar conversões de tipo inesperadas.</p>
+        </div>
+        
+        <h3>3. Precedência de operadores</h3>
+        <p>A precedência determina a ordem em que os operadores são avaliados. Segue a tabela de precedência (do maior para o menor):</p>
+        <ol>
+            <li>Agrupamento: ()</li>
+            <li>Incremento/decremento: ++ --</li>
+            <li>Exponenciação: **</li>
+            <li>Multiplicação/divisão/módulo: * / %</li>
+            <li>Adição/subtração: + -</li>
+            <li>Comparação: < <= > >=</li>
+            <li>Igualdade: == != === !==</li>
+            <li>AND lógico: &&</li>
+            <li>OR lógico: ||</li>
+            <li>Atribuição: = += -= etc.</li>
+        </ol>
+        
+        <pre><code>let resultado = 5 + 3 * 2; // 11 (não 16)
+let outroResultado = (5 + 3) * 2; // 16
+
+let a = 1, b = 2, c = 3;
+let complexo = a + b * c / a - b; // 1 + 6 / 1 - 2 = 5
+</code></pre>
+    </section>
+
+    <section id="modulo3">
+        <h2>Módulo 3: Estruturas Condicionais</h2>
+        
+        <h3>1. if, else if, else</h3>
+        <p>As estruturas condicionais permitem executar diferentes blocos de código baseado em condições.</p>
+        
+        <pre><code>let hora = new Date().getHours();
+
+if (hora < 12) {
+    console.log("Bom dia!");
+} else if (hora < 18) {
+    console.log("Boa tarde!");
+} else {
+    console.log("Boa noite!");
+}
+</code></pre>
+        
+        <p>Operador ternário (if/else em uma linha):</p>
+        <pre><code>let idade = 20;
+let status = (idade >= 18) ? "Adulto" : "Menor";
+console.log(status); // "Adulto"
+</code></pre>
+        
+        <h3>2. switch/case</h3>
+        <p>O switch é útil para múltiplas condições baseadas no mesmo valor.</p>
+        
+        <pre><code>let diaDaSemana = new Date().getDay();
+let nomeDia;
+
+switch (diaDaSemana) {
+    case 0:
+        nomeDia = "Domingo";
+        break;
+    case 1:
+        nomeDia = "Segunda";
+        break;
+    case 2:
+        nomeDia = "Terça";
+        break;
+    case 3:
+        nomeDia = "Quarta";
+        break;
+    case 4:
+        nomeDia = "Quinta";
+        break;
+    case 5:
+        nomeDia = "Sexta";
+        break;
+    case 6:
+        nomeDia = "Sábado";
+        break;
+    default:
+        nomeDia = "Dia inválido";
+}
+
+console.log(`Hoje é ${nomeDia}`);
+</code></pre>
+        
+        <div class="warning">
+            <p><strong>Atenção:</strong> Sempre inclua <code>break</code> ao final de cada case, a menos que deseje propositalmente que o código continue executando o próximo case (fall-through).</p>
+        </div>
+    </section>
+
+    <section id="modulo4">
+        <h2>Módulo 4: Laços de Repetição</h2>
+        
+        <h3>1. for, while, do-while</h3>
+        <p>Laços permitem executar um bloco de código repetidamente.</p>
+        
+        <p><strong>for:</strong> Ideal quando se sabe o número de iterações antecipadamente.</p>
+        <pre><code>// Imprime números de 1 a 5
+for (let i = 1; i <= 5; i++) {
+    console.log(i);
+}
+
+// Iterando sobre um array
+let frutas = ['maçã', 'banana', 'laranja'];
+for (let i = 0; i < frutas.length; i++) {
+    console.log(frutas[i]);
+}
+</code></pre>
+        
+        <p><strong>while:</strong> Executa enquanto uma condição for verdadeira.</p>
+        <pre><code>let contador = 0;
+while (contador < 5) {
+    console.log(contador);
+    contador++;
+}
+</code></pre>
+        
+        <p><strong>do-while:</strong> Semelhante ao while, mas garante pelo menos uma execução.</p>
+        <pre><code>let input;
+do {
+    input = prompt("Digite 'sair' para terminar:");
+} while (input !== 'sair');
+</code></pre>
+        
+        <h3>2. Controle de loops com break e continue</h3>
+        <p><code>break</code> interrompe completamente o loop, <code>continue</code> pula para a próxima iteração.</p>
+        
+        <pre><code>// Exemplo com break
+for (let i = 0; i < 10; i++) {
+    if (i === 5) break;
+    console.log(i); // Imprime 0,1,2,3,4
+}
+
+// Exemplo com continue
+for (let i = 0; i < 5; i++) {
+    if (i === 2) continue;
+    console.log(i); // Imprime 0,1,3,4
+}
+</code></pre>
+        
+        <div class="note">
+            <p><strong>Dica:</strong> Para loops sobre arrays, considere usar métodos como <code>forEach()</code>, <code>map()</code>, <code>filter()</code> que veremos no módulo 6.</p>
+        </div>
+    </section>
+
+    <section id="modulo5">
+        <h2>Módulo 5: Funções</h2>
+        
+        <h3>1. Declaração e expressão de funções</h3>
+        <p>Existem duas formas principais de definir funções:</p>
+        
+        <p><strong>Declaração de função:</strong> São içadas (hoisted) e podem ser chamadas antes da declaração.</p>
+        <pre><code>function soma(a, b) {
+    return a + b;
+}
+
+console.log(soma(2, 3)); // 5
+</code></pre>
+        
+        <p><strong>Expressão de função:</strong> Atribuída a uma variável, não são içadas.</p>
+        <pre><code>const multiplica = function(x, y) {
+    return x * y;
+};
+
+console.log(multiplica(2, 3)); // 6
+</code></pre>
+        
+        <h3>2. Arrow functions</h3>
+        <p>Introduzidas no ES6, têm sintaxe mais curta e não possuem seu próprio <code>this</code>.</p>
+        
+        <pre><code>// Forma tradicional
+const quadrado = function(x) {
+    return x * x;
+};
+
+// Arrow function equivalente
+const quadrado = x => x * x;
+
+// Com múltiplos parâmetros
+const soma = (a, b) => a + b;
+
+// Com múltiplas linhas
+const fatorial = n => {
+    let resultado = 1;
+    for (let i = 2; i <= n; i++) {
+        resultado *= i;
+    }
+    return resultado;
+};
+</code></pre>
+        
+        <h3>3. Parâmetros e retornos</h3>
+        <p>Funções podem ter parâmetros padrão e retornar qualquer tipo de valor.</p>
+        
+        <pre><code>// Parâmetros padrão
+function saudacao(nome = 'Visitante') {
+    return `Olá, ${nome}!`;
+}
+
+console.log(saudacao()); // "Olá, Visitante!"
+console.log(saudacao("João")); // "Olá, João!"
+
+// Retornando múltiplos valores (via array ou objeto)
+function operacoes(a, b) {
+    return {
+        soma: a + b,
+        subtracao: a - b,
+        multiplicacao: a * b,
+        divisao: a / b
+    };
+}
+
+let resultados = operacoes(10, 5);
+console.log(resultados.soma); // 15
+</code></pre>
+        
+        <div class="warning">
+            <p><strong>Boa prática:</strong> Funções devem ter uma única responsabilidade e nomes descritivos que indiquem claramente o que fazem.</p>
+        </div>
+    </section>
+
+    <section id="modulo6">
+        <h2>Módulo 6: Arrays e Objetos</h2>
+        
+        <h3>1. Manipulação de arrays</h3>
+        <p>Arrays são listas ordenadas que podem conter diferentes tipos de dados.</p>
+        
+        <pre><code>// Criando arrays
+let numeros = [1, 2, 3];
+let misto = ['texto', 42, true, null];
+
+// Acessando elementos
+console.log(numeros[0]); // 1 (índices começam em 0)
+
+// Modificando arrays
+numeros.push(4); // Adiciona ao final
+numeros.unshift(0); // Adiciona no início
+let ultimo = numeros.pop(); // Remove e retorna o último
+let primeiro = numeros.shift(); // Remove e retorna o primeiro
+
+console.log(numeros); // [1, 2, 3]
+</code></pre>
+        
+        <h3>2. Métodos como push, pop, map, filter</h3>
+        <p>Arrays possuem muitos métodos úteis:</p>
+        
+        <pre><code>let numeros = [1, 2, 3, 4, 5];
+
+// map: transforma cada elemento
+let dobrados = numeros.map(n => n * 2);
+console.log(dobrados); // [2, 4, 6, 8, 10]
+
+// filter: filtra elementos
+let pares = numeros.filter(n => n % 2 === 0);
+console.log(pares); // [2, 4]
+
+// reduce: reduz a um único valor
+let soma = numeros.reduce((total, n) => total + n, 0);
+console.log(soma); // 15
+
+// find: encontra o primeiro que satisfaz a condição
+let maiorQue3 = numeros.find(n => n > 3);
+console.log(maiorQue3); // 4
+
+// some e every: testam condições
+let temPar = numeros.some(n => n % 2 === 0); // true
+let todosPares = numeros.every(n => n % 2 === 0); // false
+</code></pre>
+        
+        <h3>3. Criação e acesso a objetos</h3>
+        <p>Objetos armazenam dados como pares chave-valor.</p>
+        
+        <pre><code>// Criando objetos
+let pessoa = {
+    nome: 'Maria',
+    idade: 30,
+    profissao: 'Engenheira',
+    hobbies: ['leitura', 'ciclismo'],
+    endereco: {
+        rua: 'Rua Principal',
+        numero: 123
+    },
+    saudacao: function() {
+        return `Olá, meu nome é ${this.nome}`;
+    }
+};
+
+// Acessando propriedades
+console.log(pessoa.nome); // "Maria"
+console.log(pessoa['idade']); // 30 (notação de colchetes)
+console.log(pessoa.saudacao()); // "Olá, meu nome é Maria"
+
+// Modificando objetos
+pessoa.idade = 31;
+pessoa.casado = false; // Adicionando nova propriedade
+delete pessoa.hobbies; // Removendo propriedade
+
+// Desestruturação (ES6)
+let { nome, idade } = pessoa;
+console.log(nome, idade); // "Maria" 31
+</code></pre>
+        
+        <div class="note">
+            <p><strong>Dica:</strong> Use <code>Object.keys()</code>, <code>Object.values()</code> e <code>Object.entries()</code> para trabalhar com as propriedades de um objeto.</p>
+        </div>
+    </section>
+
+    <section id="modulo7">
+        <h2>Módulo 7: Manipulação do DOM</h2>
+        
+        <h3>1. Seleção de elementos</h3>
+        <p>O DOM (Document Object Model) representa a página HTML como uma árvore de objetos.</p>
+        
+        <pre><code>// Selecionando elementos
+let titulo = document.getElementById('meuTitulo');
+let paragrafos = document.getElementsByClassName('paragrafo');
+let links = document.getElementsByTagName('a');
+
+// Métodos modernos (querySelector)
+let elemento = document.querySelector('#idDoElemento'); // Primeiro elemento que corresponde
+let todosElementos = document.querySelectorAll('.classe'); // Todos elementos que correspondem
+</code></pre>
+        
+        <h3>2. Alteração de conteúdo</h3>
+        <p>Podemos alterar conteúdo, estilos e atributos dos elementos.</p>
+        
+        <pre><code>// Alterando conteúdo
+elemento.textContent = 'Novo texto'; // Apenas texto
+elemento.innerHTML = '&lt;strong&gt;Texto&lt;/strong&gt; formatado'; // HTML
+
+// Modificando estilos
+elemento.style.color = 'blue';
+elemento.style.backgroundColor = '#f0f0f0';
+
+// Alterando atributos
+elemento.setAttribute('data-info', 'valor');
+let valor = elemento.getAttribute('data-info');
+elemento.removeAttribute('data-info');
+
+// Adicionando/removendo classes
+elemento.classList.add('nova-classe');
+elemento.classList.remove('classe-antiga');
+elemento.classList.toggle('classe-ativa'); // Adiciona se não existe, remove se existe
+</code></pre>
+        
+        <h3>3. Eventos e listeners</h3>
+        <p>Eventos permitem responder a interações do usuário.</p>
+        
+        <pre><code>// Adicionando event listeners
+let botao = document.querySelector('#meuBotao');
+
+// Forma 1: propriedade do elemento
+botao.onclick = function() {
+    console.log('Botão clicado!');
+};
+
+// Forma 2: addEventListener (preferida)
+botao.addEventListener('click', function(event) {
+    console.log('Botão clicado!', event);
+    event.preventDefault(); // Evita comportamento padrão
+});
+
+// Eventos comuns: click, mouseover, mouseout, keydown, keyup, submit, change, etc.
+
+// Event delegation (para elementos dinâmicos)
+document.body.addEventListener('click', function(event) {
+    if (event.target.matches('.item-lista')) {
+        console.log('Item da lista clicado:', event.target);
+    }
+});
+</code></pre>
+        
+        <div class="warning">
+            <p><strong>Boa prática:</strong> Sempre use <code>addEventListener</code> em vez de atribuir diretamente a propriedades como <code>onclick</code>, pois permite múltiplos listeners e mais controle.</p>
+        </div>
+    </section>
+
+    <section id="modulo8">
+        <h2>Módulo 8: Introdução a APIs e Fetch</h2>
+        
+        <h3>1. Fazendo requisições com fetch</h3>
+        <p>A API Fetch fornece uma interface para fazer requisições HTTP.</p>
+        
+        <pre><code>// Requisição GET simples
+fetch('https://api.exemplo.com/dados')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro na requisição');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Dados recebidos:', data);
+        // Processar os dados aqui
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+    });
+
+// Requisição POST com headers e body
+fetch('https://api.exemplo.com/dados', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer token123'
+    },
+    body: JSON.stringify({
+        nome: 'João',
+        idade: 30
+    })
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error(error));
+</code></pre>
+        
+        <h3>2. Tratamento de JSON</h3>
+        <p>JSON (JavaScript Object Notation) é o formato padrão para troca de dados.</p>
+        
+        <pre><code>// Convertendo objeto para JSON string
+let pessoa = { nome: "Maria", idade: 30 };
+let jsonString = JSON.stringify(pessoa);
+console.log(jsonString); // '{"nome":"Maria","idade":30}'
+
+// Convertendo JSON string para objeto
+let jsonObj = JSON.parse('{"nome":"Maria","idade":30}');
+console.log(jsonObj.nome); // "Maria"
+
+// Trabalhando com respostas JSON de APIs
+fetch('https://api.exemplo.com/dados')
+    .then(response => response.json()) // Converte resposta para objeto
+    .then(data => {
+        // data já é um objeto JavaScript
+        console.log(data);
+    });
+</code></pre>
+        
+        <div class="note">
+            <p><strong>Dica:</strong> Sempre trate erros em requisições fetch e verifique se a resposta foi bem-sucedida (<code>response.ok</code>) antes de processar os dados.</p>
+        </div>
+    </section>
+
+    <section id="modulo9">
+        <h2>Módulo 9: Promises e Assíncronismo</h2>
+        
+        <h3>1. Promises</h3>
+        <p>Promises representam operações assíncronas que podem ser concluídas no futuro.</p>
+        
+        <pre><code>// Criando uma Promise
+function esperar(ms) {
+    return new Promise((resolve, reject) => {
+        if (ms < 0) {
+            reject('Tempo não pode ser negativo');
+        } else {
+            setTimeout(() => resolve(`Esperou ${ms}ms`), ms);
+        }
+    });
+}
+
+// Usando a Promise
+esperar(2000)
+    .then(mensagem => {
+        console.log(mensagem); // "Esperou 2000ms"
+        return esperar(1000); // Encadeamento
+    })
+    .then(mensagem => console.log(mensagem)) // "Esperou 1000ms"
+    .catch(erro => console.error(erro)); // Tratamento de erro
+
+// Métodos úteis
+Promise.all([esperar(1000), esperar(2000)])
+    .then(() => console.log('Todas promises resolvidas'));
+
+Promise.race([esperar(1000), esperar(2000)])
+    .then(() => console.log('A primeira promise resolveu'));
+</code></pre>
+        
+        <h3>2. Async/await</h3>
+        <p>Sintaxe mais limpa para trabalhar com Promises, introduzida no ES2017.</p>
+        
+        <pre><code>// Função async sempre retorna uma Promise
+async function buscarDados() {
+    try {
+        // await pausa a execução até a Promise resolver
+        let resposta = await fetch('https://api.exemplo.com/dados');
+        if (!resposta.ok) throw new Error('Erro na requisição');
+        
+        let dados = await resposta.json();
+        console.log(dados);
+        
+        // Podemos usar await com qualquer Promise
+        let mensagem = await esperar(1000);
+        console.log(mensagem);
+        
+        return dados; // Retornado como Promise resolvida
+    } catch (erro) {
+        console.error('Falha:', erro);
+        throw erro; // Rejeita a Promise retornada
+    }
+}
+
+// Chamando a função async
+buscarDados()
+    .then(dados => console.log('Processamento adicional:', dados))
+    .catch(erro => console.error('Erro capturado:', erro));
+
+// IIFE (Immediately Invoked Function Expression) com async
+(async () => {
+    try {
+        let resultado = await buscarDados();
+        console.log('Resultado:', resultado);
+    } catch (erro) {
+        console.error(erro);
+    }
+})();
+</code></pre>
+        
+        <div class="warning">
+            <p><strong>Importante:</strong> <code>await</code> só pode ser usado dentro de funções marcadas como <code>async</code>. Não esqueça de sempre tratar erros com <code>try/catch</code>.</p>
+        </div>
+    </section>
+
+    <section id="final">
+        <h2>Conclusão</h2>
+        <p>Este curso avançado proporciona uma base sólida para a transição de carreira para a área de tecnologia. Você agora compreende os conceitos fundamentais do JavaScript, desde sintaxe básica até operações assíncronas com Promises e async/await.</p>
+        
+        <p>Para continuar seu aprendizado:</p>
+        <ul>
+            <li>Pratique diariamente com pequenos projetos</li>
+            <li>Explore frameworks modernos como React, Vue ou Angular</li>
+            <li>Aprenda sobre Node.js para desenvolvimento backend</li>
+            <li>Contribua para projetos open-source</li>
+            <li>Participe de comunidades de desenvolvedores</li>
+        </ul>
+        
+        <p>Lembre-se: a programação é uma jornada contínua de aprendizado. Cada linha de código escrita é um passo em direção ao domínio desta habilidade valiosa.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Projeto Recomeçar com Código | Desenvolvido com ❤️ para transformar carreiras</p>
+        <p>LEONARDO MOTA DA SILVA SANTOS RU: 4539148</p>
+    </footer>
+</body>
+</html>
