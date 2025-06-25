@@ -4,6 +4,7 @@ Um curso completo de JavaScript desenvolvido para adultos em transição de carr
 
 ## 🔍 Visão Geral
 Este repositório contém:
+
 ✅ Material completo do curso em **HTML**  
 ✅ Exemplos de código **prontos para uso**  
 ✅ Projeto 100% **responsivo**  
