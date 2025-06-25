@@ -1,4 +1,4 @@
-# 📚 Curso Avançado de JavaScript para Adultos
+# 📚 Curso Intrudutório de JavaScript para Adultos
 
 Um curso completo de JavaScript desenvolvido para adultos em transição de carreira, com foco em fundamentos sólidos e aplicações práticas.
 
